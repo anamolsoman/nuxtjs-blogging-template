@@ -1,7 +1,6 @@
 <template>
-  <v-card max-width="500" class="mb-12 mx-auto">
+  <v-card max-width="500 " class=" mx-auto">
     <nuxt-link :to="id">
-      <v-card-title>{{ title }}</v-card-title>
       <v-list-item>
         <v-list-item-avatar color="grey"></v-list-item-avatar>
         <v-list-item-content>
@@ -9,7 +8,7 @@
           <v-list-item-subtitle>by Anamol Soman</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-      <v-img :src="thumbnailUrl" height="194"></v-img>
+      <v-img :src="thumbnailUrl"></v-img>
       <v-card-text>
         {{ previewText }}
       </v-card-text>
@@ -37,7 +36,8 @@ export default {
       required: true
     },
     thumbnailUrl: {
-      type: String
+      type: String,
+      required: true
     },
     id: {
       type: String,

@@ -7,7 +7,6 @@ export default {
    */
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -81,7 +80,7 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    ['storyblok-nuxt', { accessToken: '12s7GBOYnBG3sOtEUqbKMwtt', cacheProvider: 'memory' }],
     '@nuxtjs/pwa'
   ],
   /*

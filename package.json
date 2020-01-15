@@ -17,6 +17,7 @@
     "@nuxtjs/workbox": "^3.0.0-beta.16",
     "nuxt": "^2.0.0",
     "popper.js": "^1.16.0",
+    "storyblok-nuxt": "^1.0.2",
     "vuejs-responsive-image-gallery": "^0.1.0"
   },
   "devDependencies": {

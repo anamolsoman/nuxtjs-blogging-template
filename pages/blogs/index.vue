@@ -21,47 +21,67 @@ export default {
   components: {
     Postpreview
   },
-  data() {
-    return {
-      posts: [
-        {
-          title: 'first Post',
-          previewText: 'this is a first post',
-          thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
-          Id: 'new-post'
-        },
-        {
-          title: 'Second Post',
-          previewText: 'this is a Second post',
-          thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
-          Id: 'Second-post'
-        },
-        {
-          title: 'Second Post',
-          previewText: 'this is a Second post',
-          thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
-          Id: 'Second-post'
-        },
-        {
-          title: 'Second Post',
-          previewText: 'this is a Second post',
-          thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
-          Id: 'Second-post'
-        },
-        {
-          title: 'Second Post',
-          previewText: 'this is a Second post',
-          thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
-          Id: 'Second-post'
-        },
-        {
-          title: 'Second Post',
-          previewText: 'this is a Second post',
-          thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
-          Id: 'Second-post'
+  asyncData(context) {
+    return context.app.$storyapi
+      .get('cdn/stories', {
+        version: 'draft',
+        starts_with: 'blog/'
+      })
+      .then((res) => {
+        console.log(res)
+        return {
+          posts: res.data.stories.map((bp) => {
+            return {
+              Id: bp.slug,
+              title: bp.content.title,
+              previewText: bp.content.previewText,
+              thumbnailUrl: bp.content.thumbnailUrl
+            }
+          })
         }
-      ]
-    }
+      })
   }
+  //   data() {
+  //     return {
+  //       posts: [
+  //         {
+  //           title: 'first Post',
+  //           previewText: 'this is a first post',
+  //           thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
+  //           Id: 'new-post'
+  //         },
+  //         {
+  //           title: 'Second Post',
+  //           previewText: 'this is a Second post',
+  //           thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
+  //           Id: 'Second-post'
+  //         },
+  //         {
+  //           title: 'Second Post',
+  //           previewText: 'this is a Second post',
+  //           thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
+  //           Id: 'Second-post'
+  //         },
+  //         {
+  //           title: 'Second Post',
+  //           previewText: 'this is a Second post',
+  //           thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
+  //           Id: 'Second-post'
+  //         },
+  //         {
+  //           title: 'Second Post',
+  //           previewText: 'this is a Second post',
+  //           thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
+  //           Id: 'Second-post'
+  //         },
+  //         {
+  //           title: 'Second Post',
+  //           previewText: 'this is a Second post',
+  //           thumbnailUrl: 'https://cdn.vuetifyjs.com/images/cards/mountain.jpg',
+  //           Id: 'Second-post'
+  //         }
+  //       ]
+  //     }
+  //   }
 }
 </script>

@@ -670,6 +670,14 @@
     js-levenshtein "^1.1.3"
     semver "^5.5.0"
 
+"@babel/runtime-corejs2@^7.4.2":
+  version "7.8.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.8.3.tgz#b62a61e0c41a90d2d91181fda6de21cecd3a9734"
+  integrity sha512-yxJXBKdIogkfF+wgeJrvU7Afp5ugBi92NzSgNPWWKVoQAlixH3gwMP6yYYr7SV1Dbc0HmNw7WUJkV5ksvtQuHg==
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.2"
+
 "@babel/runtime@^7.7.6":
   version "7.7.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.7.tgz#194769ca8d6d7790ec23605af9ee3e42a0aa79cf"
@@ -6439,6 +6447,11 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
+qs@^6.5.2:
+  version "6.9.1"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.1.tgz#20082c65cb78223635ab1a9eaca8875a29bf8ec9"
+  integrity sha512-Cxm7/SS/y/Z3MHWSxXb8lIFqgqBowP5JMlTUFyJN88y0SGQhVmZnqFK/PeuMX9LzUyWsqqhNxIyg0jlzq946yA==
+
 query-string@^4.1.0:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.4.tgz#bbb693b9ca915c232515b228b1a02b609043dbeb"
@@ -7154,6 +7167,28 @@ std-env@^2.2.1:
   integrity sha512-IjYQUinA3lg5re/YMlwlfhqNRTzMZMqE+pezevdcTaHceqx8ngEi1alX9nNCk9Sc81fy1fLDeQoaCzeiW1yBOQ==
   dependencies:
     ci-info "^1.6.0"
+
+storyblok-js-client@^1.0.34:
+  version "1.0.35"
+  resolved "https://registry.yarnpkg.com/storyblok-js-client/-/storyblok-js-client-1.0.35.tgz#35324166ea660635bd812cc19cc324ead6b14705"
+  integrity sha512-LPj28jvGoYfe+XniC/GBar53zwnQkIcIF6Uq8QjHxj8nyU8/nJdP4pkAsQxN8eXgzpEgtjvvuueqU6XwCdAWTA==
+  dependencies:
+    "@babel/runtime-corejs2" "^7.4.2"
+    axios "^0.19.0"
+    qs "^6.5.2"
+
+storyblok-nuxt@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/storyblok-nuxt/-/storyblok-nuxt-1.0.2.tgz#fd9e030e9eef13677f04ebd1ea84af2e25692a6c"
+  integrity sha512-g1tUZm0lvrwMzg+QPCC+T+SEkX0Z2mYzK+HyKih/jN8kTQ6FYQyNGJSf22+oa/OdZHgE0Cncfd4Wgj8dsBpKQQ==
+  dependencies:
+    storyblok-js-client "^1.0.34"
+    storyblok-vue "^1.0.4"
+
+storyblok-vue@^1.0.4:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/storyblok-vue/-/storyblok-vue-1.0.5.tgz#c9a82cc5be45c9c5af7d48477e69e207d60b5f38"
+  integrity sha512-xWnI7CY7DN+NBbG5PvdJ7cEDCjMSroIvppBfSYiM3HePoXiZSJ8X/CaLezJct2OxtchsArpbY/ZxghBseZCqtQ==
 
 stream-browserify@^2.0.1:
   version "2.0.2"
@@ -7895,10 +7930,20 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.6.11:
+vue@^2.6.10, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
+
+vuejs-responsive-image-gallery@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vuejs-responsive-image-gallery/-/vuejs-responsive-image-gallery-0.1.0.tgz#3b774e0b7ae52c6873ed66a0643d1f89dc13b79a"
+  integrity sha512-yJ51xFVDeaNNjDfTyPbGvVE/i1Hkv04zQnaLhF5AUPiQGdk/t/pnRg3dDMhyN8sWLlZN5QcoHHok/OTyyakHlQ==
+  dependencies:
+    vue "^2.6.10"
+    vue-router "^3.1.3"
+    vuetify "2.0.4"
+    vuex "^3.1.2"
 
 vuetify-loader@^1.4.3:
   version "1.4.3"
@@ -7906,6 +7951,11 @@ vuetify-loader@^1.4.3:
   integrity sha512-fS0wRil682Ebsj2as+eruBoMPKaQYDhu/fDAndnTItzSY4RK4LOEIsssVL4vD6QY8dvUgoGL84SUQ6vGr777CA==
   dependencies:
     loader-utils "^1.2.0"
+
+vuetify@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.0.4.tgz#0f751ba1d257212de16e30f3e1e9c4b8a8a93353"
+  integrity sha512-StXzJUph//ZJ1UTQNoJBmjAcC71Goeeg5Ag392z85dyertihy/3BIzPPxMqFTOJuDzst6oGQ3uQCfkIIqJvtfA==
 
 vuetify@^2.1.13:
   version "2.1.15"

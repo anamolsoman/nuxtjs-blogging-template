@@ -10,7 +10,7 @@
     </v-list-item>
     <v-list-item to="/blogs">
       <v-list-item-action>
-        <v-icon :title="'Blogs'">{{ icon.about }}</v-icon>
+        <v-icon :title="'Blogs'">{{ icon.blog }}</v-icon>
       </v-list-item-action>
       <v-list-item-content>
         Blogs
@@ -18,7 +18,7 @@
     </v-list-item>
     <v-list-item to="/forum">
       <v-list-item-action>
-        <v-icon :title="'Forum'">{{ icon.about }}</v-icon>
+        <v-icon :title="'Forum'">{{ icon.forum }}</v-icon>
       </v-list-item-action>
       <v-list-item-content>
         Forum
@@ -45,8 +45,8 @@ export default {
       icon: {
         home: 'mdi-apps',
         about: 'mdi-information-variant',
-        gallery: 'mdi-file-image',
-        contact: 'mdi-contact-mail',
+        forum: ' mdi-forum',
+        blog: 'mdi-blogger',
         language: 'mdi-translate'
       },
       title: 'Shrividya',
