@@ -8,7 +8,7 @@
         <v-app-bar-nav-icon @click="sidebar = !sidebar" />
       </span>
       <nuxt-link to="/" tag="span" style="cursor: pointer">
-        <v-toolbar-title v-text="webtitle" color="#FFFFFF" />
+        <v-toolbar-title class="white--text">Vuejs Forum</v-toolbar-title>
       </nuxt-link>
       <v-spacer></v-spacer>
       <span class="hidden-sm-and-up">

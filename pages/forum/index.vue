@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <div>
     <p>Wait few days for forum</p>
-  </section>
+  </div>
 </template>
