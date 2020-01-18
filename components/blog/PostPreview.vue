@@ -32,7 +32,6 @@ export default {
       required: true
     },
     previewText: {
-      type: String,
       required: true
     },
     thumbnailUrl: {

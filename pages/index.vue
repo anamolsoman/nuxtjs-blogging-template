@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-parallax :src="require('@/assets/img/background.jpg')" jumbotron></v-parallax>
+    <v-img :src="require('@/assets/img/background.png')" jumbotron height="500"></v-img>
     <p>Welcome to Home Page</p>
   </div>
 </template>
