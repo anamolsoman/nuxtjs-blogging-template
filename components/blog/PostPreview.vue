@@ -1,27 +1,15 @@
 <template>
-  <v-card max-width="500 " class=" mx-auto">
-    <nuxt-link :to="id">
-      <v-list-item>
-        <v-list-item-avatar color="grey"> <v-img :src="require('@/assets/img/about.jpeg')"></v-img></v-list-item-avatar>
-        <v-list-item-content>
-          <v-list-item-title class="headline">{{ title }}</v-list-item-title>
-          <v-list-item-subtitle>by Anamol Soman</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-      <v-img :src="thumbnailUrl" class="thumbnail-img"></v-img>
-      <v-card-text>
-        {{ previewText }}
-      </v-card-text>
+  <v-card class="col-lg-10 mx-auto">
+    <nuxt-link :to="id" class="links">
+      <v-row>
+        <v-col class="col-lg-4"><v-img :src="thumbnailUrl" class="thumbnail-img"></v-img></v-col>
+        <v-col class="col-lg-8"
+          ><h1>{{ title }}</h1>
+          <br />
+          <p>{{ previewText }}</p></v-col
+        >
+      </v-row>
     </nuxt-link>
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-share-variant</v-icon>
-      </v-btn>
-    </v-card-actions>
   </v-card>
 </template>
 <script>
@@ -46,7 +34,7 @@ export default {
 }
 </script>
 <style scoped>
-a {
+.links {
   text-decoration: none;
   color: black;
 }

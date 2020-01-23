@@ -1,14 +1,8 @@
 <template>
   <v-container>
     <v-row>
-      <v-col v-for="post in posts" :key="post.id">
-        <Postpreview
-          :title="post.title"
-          :previewText="post.previewText"
-          :thumbnailUrl="post.thumbnailUrl"
-          :id="post.Id"
-          class="col-lg-3 col-md-4 col-sm-6 col-xs-12"
-        />
+      <v-col v-for="post in posts" :key="post.id" class="col-lg-12">
+        <Postpreview :title="post.title" :previewText="post.previewText" :thumbnailUrl="post.thumbnailUrl" :id="post.Id" />
       </v-col>
     </v-row>
   </v-container>

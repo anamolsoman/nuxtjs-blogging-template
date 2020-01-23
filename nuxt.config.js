@@ -33,7 +33,6 @@ export default {
       name: 'Vuejs Forum',
       short_name: 'Vuejs Forum',
       display: 'standalone',
-      theme_color: '#FBE9E7',
       lang: 'en',
       start_url: '/'
     },
@@ -81,7 +80,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     ['storyblok-nuxt', { accessToken: '12s7GBOYnBG3sOtEUqbKMwtt', cacheProvider: 'memory' }],
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
   ],
   /*
    ** Axios module configuration
@@ -96,7 +96,7 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     theme: {
       color: '#FBE9E7',
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,

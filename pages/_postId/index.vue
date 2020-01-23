@@ -6,23 +6,62 @@
           <v-img :src="image" class="post-thmubnail"></v-img>
         </div>
         <v-card>
-          <v-card-title>{{ title }}</v-card-title>
-          <v-card-text>{{ content }}</v-card-text>
-          <div class="description"><p v-html="description"></p></div>
-          <div></div>
+          <div class="description">
+            <h1>{{ title }}</h1>
+            <hr />
+            <div class="description"><p v-html="description"></p></div>
+            <br />
+            <v-img :src="post_image"></v-img>
+          </div>
         </v-card>
-      </div>
-      <div class="col-lg-3">
-        <v-card v-for="post in posts" :key="post.id"><Recentposts :title="post.title" :thumbnailUrl="post.thumbnailUrl"/></v-card>
       </div>
     </v-row>
   </v-container>
 </template>
+
 <script>
-import Recentposts from '@/components/blog/Recentposts'
 export default {
-  components: {
-    Recentposts
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.previewText
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content: this.title
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: this.title
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.title
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.previewText
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.title
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.previewText
+        }
+      ]
+    }
   },
   asyncData(context) {
     return context.app.$storyapi
@@ -30,10 +69,13 @@ export default {
         version: 'draft'
       })
       .then((res) => {
+        console.log(res)
         return {
           image: res.data.story.content.thumbnailUrl,
+          post_image: res.data.story.content.post_image,
           title: res.data.story.content.title,
-          content: res.data.story.content.previewText,
+          previewText: res.data.story.content.previewText,
+
           description: context.app.$storyapi.richTextResolver.render(res.data.story.content.description)
         }
       })
@@ -46,6 +88,9 @@ export default {
   height: 300px;
 }
 .description {
-  margin: 20px;
+  padding: 25px;
+}
+.background {
+  color: red;
 }
 </style>

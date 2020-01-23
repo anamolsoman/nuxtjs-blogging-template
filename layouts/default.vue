@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app>
+    <v-app dark>
       <v-navigation-drawer v-model="sidebar" app>
         <Navbar />
       </v-navigation-drawer>
@@ -26,6 +26,9 @@
       <v-content>
         <nuxt />
       </v-content>
+      <v-footer class="font-weight-medium" color="teal darken-1">
+        <v-col class="text-center white--text" cols="12"> {{ new Date().getFullYear() }} — <strong>All Rightes Reserved</strong> </v-col>
+      </v-footer>
     </v-app>
   </div>
 </template>
