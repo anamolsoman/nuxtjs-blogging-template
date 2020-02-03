@@ -1,24 +1,16 @@
-> Nuxt.js image gallery developed by Anamol Soman
+# Vue PWA: A Progressive Web Application Example With Nuxt 
 
-## About Project
+![vue-pwa](https://snipcart.com/media/204668/vue-pwa.png)
 
-In this project I build responsive image gallery with nuxtjs and vuetify
+Progressive web applications have been proven to increase traffic, user engagement, and conversions. Plus, they're not as difficult to create as you may think. 
 
-## Build Setup
+In today's guide, we’ll be building a Vue PWA using Nuxt. More specifically, we will look at: 
 
-```bash
-# install dependencies
-$ yarn  install
+1) A quick review of Progressive Web Applications 
+2) Statistics showing the benefits of PWAs
+3) Why we’re building a Vue PWA this time around
+4) How to create your own Vue PWA
 
-# serve with hot reload at localhost:3000
-$ yarn  dev
+> *Read the [full tutorial here](https://snipcart.com/blog/vue-pwa)*
 
-# build for production and launch server
-$ yarn build
-
-#Note - select vuetify when installing nuxt
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
-
-Enjoy with this code
-```
+> *See the [live demo here](https://snipcart-nuxt-pwa.netlify.com/)*

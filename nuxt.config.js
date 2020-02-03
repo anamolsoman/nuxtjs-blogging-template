@@ -1,62 +1,30 @@
-import colors from 'vuetify/es5/util/colors'
+const path = require("path");
+import guides from "./contents/guides/guides.js";
 
 export default {
-  mode: 'universal',
+  mode: "universal",
   /*
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    title: process.env.npm_package_name || "",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
+        hid: "description",
+        name: "description",
+        content: process.env.npm_package_description || ""
       }
+    ],
+    link: [
+      // Snipcart styling
     ]
-    // link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.ico' }]
-  },
-  pwa: {
-    workbox: {
-      runtimeCaching: [
-        {
-          urlPattern: 'http://localhost:3035/.*',
-          handler: 'cacheFirst',
-          method: 'GET',
-          strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
-        }
-      ]
-    },
-    manifest: {
-      name: 'Vuejs Forum',
-      short_name: 'Vuejs Forum',
-      display: 'standalone',
-      lang: 'en',
-      start_url: '/'
-    },
-    icon: {
-      iconSrc: ''
-    }
-  },
-  render: {
-    http2: {
-      push: true
-    },
-    static: {
-      maxAge: '1y',
-      setHeaders(res, path) {
-        if (path.includes('sw.js')) {
-          res.setHeader('Cache-Control', `public, max-age=${15 * 60}`)
-        }
-      }
-    }
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: "#fff" },
   /*
    ** Global CSS
    */
@@ -65,51 +33,11 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [],
-  router: {},
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
-  ],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    ['storyblok-nuxt', { accessToken: '12s7GBOYnBG3sOtEUqbKMwtt', cacheProvider: 'memory' }],
-    '@nuxtjs/pwa',
-    '@nuxtjs/sitemap'
-  ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
-  /*
-   ** vuetify module configuration
-   ** https://github.com/nuxt-community/vuetify-module
-   */
-  vuetify: {
-    customVariables: ['~/assets/variables.scss'],
-    theme: {
-      color: '#FBE9E7',
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
-  },
+
+  modules: ["bootstrap-vue/nuxt"],
   /*
    ** Build configuration
    */
@@ -117,10 +45,43 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: "frontmatter-markdown-loader",
+        include: path.resolve(__dirname, "contents")
+      });
+    }
   },
-  server: {
-    port: 3035, // default: 3000
-    host: '0.0.0.0' // default: localhost
+  /*
+   ** Overwrite's generated manifest values
+   */
+  manifest: {
+    name: "Nuxt.js PWA survival store",
+    short_name: "Nuxt.js PWA",
+    lang: "en",
+    display: "standalone"
+  },
+  /*
+   ** Generate dynamic routes
+   */
+  generate: {
+    fallback: true,
+    routes: [].concat(guides.map(guide => `guides/${guide}`))
+  },
+  /*
+   ** Handle external assets
+   */
+  workbox: {
+    runtimeCaching: []
+  },
+  /*
+   ** Allow dev tools in production
+   */
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
   }
-}
+};
