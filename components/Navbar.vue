@@ -1,38 +1,15 @@
 <template>
-  <v-list>
-    <v-list-item to="/">
-      <v-list-item-action>
-        <v-icon :title="'Home'">{{ icon.home }}</v-icon>
-      </v-list-item-action>
-      <v-list-item-content>
-        Home
-      </v-list-item-content>
-    </v-list-item>
-    <v-list-item to="/blogs">
-      <v-list-item-action>
-        <v-icon :title="'Blogs'">{{ icon.blog }}</v-icon>
-      </v-list-item-action>
-      <v-list-item-content>
-        Blogs
-      </v-list-item-content>
-    </v-list-item>
-    <v-list-item to="/forum">
-      <v-list-item-action>
-        <v-icon :title="'Forum'">{{ icon.forum }}</v-icon>
-      </v-list-item-action>
-      <v-list-item-content>
-        Forum
-      </v-list-item-content>
-    </v-list-item>
-    <v-list-item to="/about">
-      <v-list-item-action>
-        <v-icon :title="'About'">{{ icon.about }}</v-icon>
-      </v-list-item-action>
-      <v-list-item-content>
-        About
-      </v-list-item-content>
-    </v-list-item>
-  </v-list>
+  <v-app-bar fixed app flat dense dark>
+    <nuxt-link to="/">
+      <v-toolbar-title>Vue Js forum</v-toolbar-title>
+    </nuxt-link>
+    <v-spacer />
+    <v-toolbar-items class=" ml-0 hidden-sm-and-down">
+      <v-btn to="/" text>Blogs</v-btn>
+      <v-btn to="/forum" text>Forum</v-btn>
+      <v-btn to="/about" text>About</v-btn>
+    </v-toolbar-items>
+  </v-app-bar>
 </template>
 
 <script>

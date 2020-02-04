@@ -1,20 +1,20 @@
-const path = require("path");
-import guides from "./contents/guides/guides.js";
+const path = require('path')
+import guides from './contents/guides/guides.js'
 
 export default {
-  mode: "universal",
+  mode: 'universal',
   /*
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || "",
+    titleTemplate: '%s - ' + process.env.npm_package_name,
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: "description",
-        name: "description",
-        content: process.env.npm_package_description || ""
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
       }
     ],
     link: [
@@ -24,7 +24,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: { color: '#fff' },
   /*
    ** Global CSS
    */
@@ -32,15 +32,19 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/disqus', '~/plugins/prism'],
   /*
    ** Nuxt.js dev-modules
    */
 
-  modules: ["bootstrap-vue/nuxt"],
+  modules: [],
   /*
    ** Build configuration
    */
+  buildModules: [
+    // Simple usage
+    '@nuxtjs/vuetify'
+  ],
   build: {
     /*
      ** You can extend webpack config here
@@ -48,26 +52,26 @@ export default {
     extend(config, ctx) {
       config.module.rules.push({
         test: /\.md$/,
-        loader: "frontmatter-markdown-loader",
-        include: path.resolve(__dirname, "contents")
-      });
+        loader: 'frontmatter-markdown-loader',
+        include: path.resolve(__dirname, 'contents')
+      })
     }
   },
   /*
    ** Overwrite's generated manifest values
    */
   manifest: {
-    name: "Nuxt.js PWA survival store",
-    short_name: "Nuxt.js PWA",
-    lang: "en",
-    display: "standalone"
+    name: 'Nuxt.js PWA survival store',
+    short_name: 'Nuxt.js PWA',
+    lang: 'en',
+    display: 'standalone'
   },
   /*
    ** Generate dynamic routes
    */
   generate: {
     fallback: true,
-    routes: [].concat(guides.map(guide => `guides/${guide}`))
+    routes: [].concat(guides.map((guide) => `guides/${guide}`))
   },
   /*
    ** Handle external assets
@@ -84,4 +88,4 @@ export default {
       devtools: true
     }
   }
-};
+}

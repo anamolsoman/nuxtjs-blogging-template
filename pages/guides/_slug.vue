@@ -1,81 +1,79 @@
 <template>
   <div>
-    <b-container fluid class="bv-example-row">
-      <b-row align-h="center">
-        <b-col class="col-lg-6 col-sm-10 ">
-          <h1>{{ attributes.title }}</h1>
-          <p>{{ attributes.date }}</p>
-          <p v-html="html" class="content"></p
-        ></b-col>
-      </b-row>
-    </b-container>
+    <h1>{{ attributes.title }}</h1>
+    <p>{{ attributes.date }}</p>
+    <p v-html="html" class="content"></p>
   </div>
 </template>
 
 <script>
-import Prism from "~/plugins/prism";
+import Prism from '~/plugins/prism'
 
 export default {
   async asyncData({ params, route }) {
-    const guideName = params.slug;
-    const markdownContent = await import(`~/contents/guides/${guideName}.md`);
+    const guideName = params.slug
+    const markdownContent = await import(`~/contents/guides/${guideName}.md`)
     return {
       attributes: markdownContent.attributes,
       html: markdownContent.html,
       currentUrl: route.path
-    };
+    }
   },
   mounted() {
-    Prism.highlightAll();
+    Prism.highlightAll()
   },
   head() {
     return {
       title: this.attributes.title,
       meta: [
         {
-          hid: "description",
-          name: "description",
+          hid: 'description',
+          name: 'description',
           content: this.previewText
         },
         {
-          hid: "title",
-          name: "title",
+          hid: 'title',
+          name: 'title',
           content: this.attributes.title
         },
         {
-          hid: "twitter:card",
-          name: "twitter:card",
+          hid: 'twitter:card',
+          name: 'twitter:card',
           content: this.title
         },
         {
-          hid: "twitter:title",
-          name: "twitter:title",
+          hid: 'twitter:title',
+          name: 'twitter:title',
           content: this.title
         },
         {
-          hid: "twitter:description",
-          name: "twitter:description",
+          hid: 'twitter:description',
+          name: 'twitter:description',
           content: this.previewText
         },
         {
-          hid: "og:title",
-          name: "og:title",
+          hid: 'og:title',
+          name: 'og:title',
           content: this.title
         },
         {
-          hid: "og:description",
-          name: "og:description",
+          hid: 'og:description',
+          name: 'og:description',
           content: this.previewText
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
 <style scoped>
 .content >>> .paragraph {
   font-size: 20px;
-  font-family: Lora, "Times New Roman", serif;
+  font-family: Lora, 'Times New Roman', serif;
+}
+.content >>> .language-javascript,
+.content >>> .language-html {
+  box-shadow: none;
 }
 .content >>> .crop-post-image {
   object-fit: cover;

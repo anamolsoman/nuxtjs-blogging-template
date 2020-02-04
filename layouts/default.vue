@@ -1,38 +1,26 @@
 <template>
-  <div>
-    <b-navbar toggleable="md" class="navbar" type="dark" variant="dark">
-      <b-container>
-        <b-navbar-brand to="/" class="links">Vuejs Forum Blogs</b-navbar-brand>
-
-        <!-- Put the toggle here after the brand -->
-        <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-
-        <b-collapse is-nav id="nav_collapse">
-          <b-navbar-nav class="ml-auto" dark>
-            <b-nav-item to="/" class="links">Blogs</b-nav-item>
-            <b-nav-item to="forum" class="links">Forum</b-nav-item>
-          </b-navbar-nav>
-        </b-collapse>
-      </b-container>
-    </b-navbar>
-    <nuxt />
+  <v-app>
+    <v-content>
+      <Navbar />
+      <v-container>
+        <v-row class="justify-center">
+          <v-col class="col-md-8 col-lg-8 col-sm-8 ">
+            <nuxt />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
     <Footer />
-  </div>
+  </v-app>
 </template>
 
 <script>
-import Footer from "~/components/Footer";
+import Navbar from '~/components/Navbar'
+import Footer from '~/components/Footer'
 export default {
   components: {
-    Footer
+    Footer,
+    Navbar
   }
-};
+}
 </script>
-<style scoped>
-.navbar {
-  border-bottom: 1px solid #000;
-}
-.links {
-  color: white;
-}
-</style>
