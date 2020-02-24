@@ -2,6 +2,8 @@
 title: How To Pass Data Between Components In Vue.js
 date: Feb 02,2020
 link: 'guides/How-To-Pass-Data-Between-Components-In-Vuejs'
+thumbnail: 'https://images.unsplash.com/photo-1581285025904-e7f1a94c330b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
+meta_description: 'VueJS props are the simplest way to share data between components. Props are custom attributes that we can give to a component'
 description: 'VueJS props are the simplest way to share data between components. Props are custom attributes that we can give to a component. Then, in our template, we can give those attributes values and — BAM — we’re passing data from a parent to a child component!'
 ---
 

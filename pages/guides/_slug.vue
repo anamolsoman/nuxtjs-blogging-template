@@ -1,8 +1,27 @@
 <template>
   <div>
-    <h1>{{ attributes.title }}</h1>
+    <!-- <h1>{{ attributes.title }}</h1>
     <p>{{ attributes.date }}</p>
-    <p v-html="html" class="content"></p>
+    <hr />
+    <br />
+    <div v-html="html" class="content"></div> -->
+    <v-container grid-list-xl>
+      <v-layout justify-center wrap>
+        <v-flex xs12 md8>
+          <v-container py-0>
+            <v-layout wrap>
+              <v-flex xs12 md12>
+                <h1>{{ attributes.title }}</h1>
+                <p>{{ attributes.date }}</p>
+                <hr />
+                <br />
+                <div v-html="html" class="content"></div>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
 
@@ -29,7 +48,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.previewText
+          content: this.attributes.meta_description
         },
         {
           hid: 'title',
@@ -39,27 +58,27 @@ export default {
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: this.title
+          content: this.attributes.title
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.title
+          content: this.attributes.title
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.previewText
+          content: this.attributes.meta_description
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: this.title
+          content: this.attributes.title
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: this.previewText
+          content: this.attributes.meta_description
         }
       ]
     }

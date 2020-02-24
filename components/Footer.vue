@@ -1,19 +1,8 @@
 <template>
-  <div class="footer">
-    <v-row>
-      <v-col cols="12">
-        <div>&copy; All Rights are Reserved</div>
-      </v-col>
-    </v-row>
-  </div>
+  <v-footer class=" black">
+    <v-col class="text-center white--text" cols="12">
+      {{ new Date().getFullYear() }} — <strong>All Rights Are Reserved</strong> By Vuejsforum.com
+    </v-col>
+  </v-footer>
 </template>
-<style scoped>
-.footer {
-  background-color: #212529;
-  left: 0;
-  height: 50px;
-  width: 100%;
-  color: white;
-  text-align: center;
-}
-</style>
+<style scoped></style>
