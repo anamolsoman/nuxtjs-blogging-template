@@ -1,56 +1,64 @@
 <template>
-  <div>
-    <v-app dark>
+  <v-app>
+    <v-content>
       <v-navigation-drawer v-model="sidebar" app>
         <Navbar />
       </v-navigation-drawer>
-      <v-app-bar app color="teal darken-1">
+
+      <v-app-bar app flat>
         <span class="hidden-sm-and-up">
           <v-app-bar-nav-icon @click="sidebar = !sidebar" />
         </span>
+        <v-spacer></v-spacer>
         <nuxt-link to="/" tag="span" style="cursor: pointer">
-          <v-toolbar-title class="white--text">Vuejs Forum</v-toolbar-title>
+          <v-toolbar-title><v-img :src="require('~/assets/img/logo.png')" height="50" width="250" /> </v-toolbar-title>
         </nuxt-link>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+
+        <v-toolbar-items class="hidden-xs-only">
+          <v-btn to="/" text>Blogs</v-btn>
+          <v-btn href="http://vuejsforum.com/" text>Forum</v-btn>
+        </v-toolbar-items>
         <v-spacer></v-spacer>
         <span class="hidden-sm-and-up">
           <v-avatar :tile="true" class="">
-            <img :src="require('~/static/logo.png')" alt="logo" />
+            <v-img :src="require('~/static/logo.png')" alt="logo" height="35px" />
           </v-avatar>
         </span>
-        <v-toolbar-items class="hidden-xs-only">
-          <v-btn to="blogs" text color="#FFFFFF">Blogs</v-btn>
-          <v-btn to="forum" text color="#FFFFFF">Forum</v-btn>
-          <v-btn to="about" text color="#FFFFFF">About</v-btn>
-        </v-toolbar-items>
       </v-app-bar>
-      <v-content>
-        <nuxt />
-      </v-content>
-      <v-footer class="font-weight-medium" color="teal darken-1">
-        <v-col class="text-center white--text" cols="12"> {{ new Date().getFullYear() }} — <strong>All Rightes Reserved</strong> </v-col>
-      </v-footer>
-    </v-app>
-  </div>
+
+      <!-- <v-row class="justify-center"> -->
+      <!-- <v-col class="col-md-6 col-lg-8 col-sm-8 "> -->
+      <nuxt />
+      <!-- </v-col> -->
+      <!-- </v-row> -->
+    </v-content>
+    <Footer />
+  </v-app>
 </template>
 
 <script>
 import Navbar from '~/components/Navbar'
-// import Appbar from '~/components/Appbar'
+import Footer from '~/components/Footer'
 export default {
-  components: {
-    Navbar
-  },
   data() {
     return {
-      webtitle: 'Vuejs Forum',
-      clipped: true,
       sidebar: false,
-      fixed: true,
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: { eng: 'Nuxt image gallery' }
+      overlay: false
     }
+  },
+  watch: {
+    overlay(val) {
+      val &&
+        setTimeout(() => {
+          this.overlay = false
+        }, 3000)
+    }
+  },
+  components: {
+    Footer,
+    Navbar
   }
 }
 </script>
