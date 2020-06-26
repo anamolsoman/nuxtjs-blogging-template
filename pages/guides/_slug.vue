@@ -11,7 +11,7 @@
           <v-container py-0>
             <v-layout wrap>
               <v-flex xs12 md12>
-                <h1>{{ attributes.title }}</h1>
+                <h1 class="justify-text">{{ attributes.title }}</h1>
                 <p>{{ attributes.date }}</p>
                 <hr />
                 <br />

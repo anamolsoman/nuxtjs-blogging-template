@@ -16,7 +16,7 @@
     > -->
     <v-container grid-list-xl>
       <v-layout justify-center wrap>
-        <v-flex xs12 md8>
+        <v-flex xs12 md12>
           <v-container py-0>
             <v-layout wrap>
               <v-flex xs12 sm6 md4 v-for="(guide, index) in guides" :key="index">
