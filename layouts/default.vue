@@ -1,28 +1,31 @@
 <template>
   <v-app>
-    <v-content>
+    <v-main>
       <v-navigation-drawer v-model="sidebar" app>
         <Navbar />
       </v-navigation-drawer>
 
-      <v-app-bar app flat>
+      <v-app-bar app flat color="blue darken-1">
         <span class="hidden-sm-and-up">
           <v-app-bar-nav-icon @click="sidebar = !sidebar" />
         </span>
         <v-spacer></v-spacer>
         <nuxt-link to="/" tag="span" style="cursor: pointer">
-          <v-toolbar-title><v-img :src="require('~/assets/img/logo.png')" height="50" width="250" /> </v-toolbar-title>
+          <v-toolbar-title class="white--text">
+            <!-- <v-img :src="require('~/assets/img/logo.png')" height="50" width="250" /> -->
+            Bloging Template
+          </v-toolbar-title>
         </nuxt-link>
         <v-spacer></v-spacer>
         <v-spacer></v-spacer>
 
         <v-toolbar-items class="hidden-xs-only">
-          <v-btn to="/" text>Blogs</v-btn>
-          <v-btn href="http://vuejsforum.com/" text>Forum</v-btn>
+          <v-btn to="/" text class="white--text">Home</v-btn>
+          <!-- <v-btn href="http://vuejsforum.com/" text>Forum</v-btn> -->
         </v-toolbar-items>
         <v-spacer></v-spacer>
         <span class="hidden-sm-and-up">
-          <v-avatar :tile="true" class="">
+          <v-avatar :tile="true" class>
             <v-img :src="require('~/static/logo.png')" alt="logo" height="35px" />
           </v-avatar>
         </span>
@@ -33,7 +36,7 @@
       <nuxt />
       <!-- </v-col> -->
       <!-- </v-row> -->
-    </v-content>
+    </v-main>
     <Footer />
   </v-app>
 </template>
