@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "nuxt": "^2.11.0",
-    "prismjs": "^1.19.0",
+    "prismjs": "^1.25.0",
     "storyblok-nuxt": "0.0.3",
     "vue-disqus": "^3.0.5"
   },
