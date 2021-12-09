@@ -16,22 +16,41 @@
     > -->
     <v-container grid-list-xl>
       <v-layout justify-center wrap>
-        <v-flex xs12 md12>
+        <v-flex xs12 md10 lg10>
+          <div class="py-5"></div>
           <v-container py-0>
             <v-layout wrap>
-              <v-flex xs12 sm6 md4 v-for="(guide, index) in guides" :key="index">
-                <v-card flat hover class="single-post ">
+              <v-flex xs12 sm6 md6 lg6 v-for="(guide, index) in guides" :key="index" pa-md-4 mt-4>
+                <!-- <v-card rounded="" class="single-post pa-0">
                   <article>
-                    <v-img :src="guide.attributes.thumbnail"></v-img>
+                    <nuxt-link class="links" :to="guide.attributes.link" style="box-shadow: none;">
+                      <v-card-title class="pa-0"> <v-img :src="guide.attributes.thumbnail"></v-img> </v-card-title
+                    ></nuxt-link>
+
                     <div>
-                      <small>{{ guide.attributes.date }}</small>
-                      <h2>
-                        <nuxt-link class="links" :to="guide.attributes.link" style="box-shadow: none;">{{ guide.attributes.title }}</nuxt-link>
-                      </h2>
+                      <v-card-subtitle>{{ guide.attributes.date }}</v-card-subtitle>
+                      <v-card-title> {{ guide.attributes.title }}</v-card-title>
                       <p>{{ guide.attributes.description }}</p>
                     </div>
                   </article>
-                </v-card>
+                </v-card> -->
+                <nuxt-link class="links" :to="guide.attributes.link" style="box-shadow: none;">
+                  <v-hover v-slot="{ hover }">
+                    <v-card :elevation="hover ? 12 : 2" class="mx-auto post rounded-lg" max-height="550" :max-width="600">
+                      <v-card-title class="pa-0">
+                        <v-img :src="guide.attributes.thumbnail" class="rounded-img"></v-img>
+                      </v-card-title>
+                      <v-card-title class="">
+                        <v-layout wrap>
+                          <v-flex md9 lg9 xs12
+                            ><h4>{{ guide.attributes.title }}</h4></v-flex
+                          >
+                          <v-flex md3 lg3 xs12> <v-btn :class="hover ? 'primary white--text' : ''" outlined>Read More</v-btn> </v-flex></v-layout
+                        >
+                      </v-card-title>
+                    </v-card>
+                  </v-hover>
+                </nuxt-link>
               </v-flex>
             </v-layout>
           </v-container>
@@ -103,8 +122,7 @@ export default {
 .links:hover {
   color: #34495e;
 }
-.single-post {
-  padding: 15px;
-  margin-top: 20px;
+.post {
+  overflow: hidden;
 }
 </style>
