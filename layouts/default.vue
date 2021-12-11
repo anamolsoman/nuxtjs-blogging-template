@@ -23,19 +23,18 @@
           </v-avatar>
         </span>
       </v-app-bar> -->
-
+      <v-app-bar color="#082a4e" height="70px" dark>
+        <v-app-bar-nav-icon @click="drawer = true" class="hidden-md-and-up"></v-app-bar-nav-icon>
+        <v-toolbar-title class="website-title">Vue Blogs</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="hidden-xs-only">
+          <v-btn to="/" text>Blogs</v-btn>
+          <v-btn href="https://github.com/anamolsoman" text>About Me</v-btn>
+        </v-toolbar-items>
+      </v-app-bar>
       <v-layout justify-center class="blog-listing-background">
         <v-flex md10 lg10 sm12>
-          <v-app-bar color="#082a4e" height="70px" dark rounded="">
-            <v-app-bar-nav-icon @click="drawer = true" class="hidden-md-and-up"></v-app-bar-nav-icon>
-            <v-toolbar-title class="website-title">Vue Blogs</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-spacer></v-spacer>
-            <v-toolbar-items class="hidden-xs-only">
-              <v-btn to="/" text>Blogs</v-btn>
-              <v-btn href="https://github.com/anamolsoman" text>About Me</v-btn>
-            </v-toolbar-items>
-          </v-app-bar>
           <!-- <v-app-bar color="teal lighten-3">
             <v-toolbar-title>Title</v-toolbar-title>
 

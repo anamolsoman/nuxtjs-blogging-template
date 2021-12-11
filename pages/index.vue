@@ -20,7 +20,7 @@
           <div class="py-5"></div>
           <v-container py-0>
             <v-layout wrap>
-              <v-flex xs12 sm6 md6 lg6 v-for="(guide, index) in guides" :key="index" pa-md-4 mt-4>
+              <v-flex xs12 sm6 md6 lg6 v-for="(guide, index) in guides" :key="index" pa-0 pa-md-4 mt-4>
                 <!-- <v-card rounded="" class="single-post pa-0">
                   <article>
                     <nuxt-link class="links" :to="guide.attributes.link" style="box-shadow: none;">

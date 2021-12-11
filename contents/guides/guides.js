@@ -3,5 +3,6 @@ export default [
   'VueJS-Environment-Setup',
   'How-to-publish-npm-package',
   'Setup-Storyblok-CMS-to-VueJs',
-  'How-to-Build-a-SEO-friendly-Website-Using-Nuxtjs'
+  'How-to-Build-a-SEO-friendly-Website-Using-Nuxtjs',
+  'Custom-Loading-Spinner-Component-in-Nuxtjs-and-Vuetify'
 ]
